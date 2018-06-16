@@ -1,7 +1,7 @@
 # Full stack MERN workflow
 
 ## 0. Initialize project
-![0](./diagrams/0.png)
+![0](./diagrams/0.PNG)
 
 ## 1. Set up express
 ![1](./diagrams/1.PNG)
