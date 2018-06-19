@@ -1,19 +1,19 @@
-// JobListingForm shows a form for a user to add input
+// AddUserForm shows a form for a user to add input
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
-import JobListingField from './JobListingField';
+import AddUserField from './AddUserField';
 import validateEmail from '../../utils/validateEmail';
 import formFields from './formFields';
 
-class JobListingForm extends Component {
+class AddUserForm extends Component {
   renderFields() {
     return _.map(formFields, ({ label, name }) => {
       return (
         <Field
           key={name}
-          component={JobListingField}
+          component={AddUserField}
           type="text"
           label={label}
           name={name}
@@ -25,9 +25,9 @@ class JobListingForm extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.props.handleSubmit(this.props.onJobListingSubmit)}>
+        <form onSubmit={this.props.handleSubmit(this.props.onAddUserSubmit)}>
           {this.renderFields()}
-          <Link to="/jobListings" className="red btn-flat white-text">
+          <Link to="/addUsers" className="red btn-flat white-text">
             Cancel
           </Link>
           <button type="submit" className="teal btn-flat right white-text">
@@ -56,6 +56,6 @@ function validate(values) {
 
 export default reduxForm({
   validate,
-  form: 'jobListingForm',
+  form: 'addUserForm',
   destroyOnUnmount: false
-})(JobListingForm);
+})(AddUserForm);

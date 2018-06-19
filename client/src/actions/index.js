@@ -7,27 +7,17 @@ export const fetchUser = () => async dispatch => {
   dispatch({ type: FETCH_USER, payload: res.data });
 };
 
-export const handleToken = token => async dispatch => {
-  const res = await axios.post('/api/stripe', token);
-
-  dispatch({ type: FETCH_USER, payload: res.data });
-};
-
-export const submitJobListing = (values, history) => async dispatch => {
+export const submitAddUser = (values, history) => async dispatch => {
   try {
-    const res = await axios.post('/api/jobListings', values);
-    history.push('/jobListings');
+    const res = await axios.post('/api/addUsers', values);
+    history.push('/addUsers');
     dispatch({ type: FETCH_USER, payload: res.data });
-  } catch (err) {
-    if (err.message.includes('403')) {
-      alert('You need to add more credits!')
-    }
   }
 }
 
 
-export const fetchJobListings = () => async dispatch => {
-  const res = await axios.get('/api/jobListings');
+export const fetchAddUsers = () => async dispatch => {
+  const res = await axios.get('/api/addUsers');
 
   dispatch({ type: FETCH_JOBLISTINGS, payload: res.data });
 };

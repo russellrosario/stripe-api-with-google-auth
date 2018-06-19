@@ -1,24 +1,24 @@
-// JobListingNew shows JobListingForm and JobListingFormReview
+// AddUserNew shows AddUserForm and AddUserFormReview
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
-import JobListingForm from './JobListingForm';
-import JobListingFormReview from './JobListingFormReview';
+import AddUserForm from './AddUserForm';
+import AddUserFormReview from './AddUserFormReview';
 
-class JobListingNew extends Component {
+class AddUserNew extends Component {
   state = { showFormReview: false };
 
   renderContent() {
     if (this.state.showFormReview) {
       return (
-        <JobListingFormReview
+        <AddUserFormReview
           onCancel={() => this.setState({ showFormReview: false })}
         />
       );
     }
 
     return (
-      <JobListingForm
-        onJobListingSubmit={() => this.setState({ showFormReview: true })}
+      <AddUserForm
+        onAddUserSubmit={() => this.setState({ showFormReview: true })}
       />
     );
   }
@@ -33,5 +33,5 @@ class JobListingNew extends Component {
 }
 
 export default reduxForm({
-  form: 'jobListingForm'
-})(JobListingNew);
+  form: 'addUserForm'
+})(AddUserNew);

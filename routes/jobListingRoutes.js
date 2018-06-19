@@ -2,21 +2,21 @@ const mongoose = require('mongoose')
 const requireLogin = require('../middlewares/requireLogin')
 const requireCredits = require('../middlewares/requireCredits')
 
-const JobListing = mongoose.model('jobListings')
+const AddUser = mongoose.model('addUsers')
 
 module.exports = app => {
-  app.get('/api/jobListings', requireLogin, async (req, res) => {
-    const jobListings = await JobListing.find({ _user: req.user.id }).select({
+  app.get('/api/addUsers', requireLogin, async (req, res) => {
+    const addUsers = await AddUser.find({ _user: req.user.id }).select({
       email: false
     })
 
-    res.send(jobListings)
+    res.send(addUsers)
   })
 
-  app.post('/api/jobListings', requireLogin, requireCredits, async (req, res) => {
+  app.post('/api/addUsers', requireLogin, requireCredits, async (req, res) => {
     const { title, subject, body, email } = req.body
 
-    const jobListing = new JobListing({
+    const addUser = new AddUser({
       title,
       subject,
       body,
@@ -26,8 +26,7 @@ module.exports = app => {
     })
 
     try {
-      await jobListing.save()
-      req.user.credits -= 1
+      await addUser.save()
       const user = await req.user.save()
 
       res.send(user)

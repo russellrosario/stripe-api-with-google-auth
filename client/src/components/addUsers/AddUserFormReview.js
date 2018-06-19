@@ -1,4 +1,4 @@
-// JobListingFormReview shows users their form inputs for review
+// AddUserFormReview shows users their form inputs for review
 import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -6,7 +6,7 @@ import formFields from './formFields';
 import { withRouter } from 'react-router-dom';
 import * as actions from '../../actions';
 
-const JobListingFormReview = ({ onCancel, formValues, submitJobListing, history }) => {
+const AddUserFormReview = ({ onCancel, formValues, submitAddUser, history }) => {
   const reviewFields = _.map(formFields, ({ name, label }) => {
     return (
       <div key={name}>
@@ -29,10 +29,10 @@ const JobListingFormReview = ({ onCancel, formValues, submitJobListing, history 
         Back
       </button>
       <button
-        onClick={() => submitJobListing(formValues, history)}
+        onClick={() => submitAddUser(formValues, history)}
         className="green btn-flat right white-text"
       >
-        Send JobListing
+        Send AddUser
         <i className="material-icons right">email</i>
       </button>
     </div>
@@ -40,7 +40,7 @@ const JobListingFormReview = ({ onCancel, formValues, submitJobListing, history 
 };
 
 function mapStateToProps(state) {
-  return { formValues: state.form.jobListingForm.values };
+  return { formValues: state.form.addUserForm.values };
 }
 
-export default connect(mapStateToProps, actions)(withRouter(JobListingFormReview));
+export default connect(mapStateToProps, actions)(withRouter(AddUserFormReview));

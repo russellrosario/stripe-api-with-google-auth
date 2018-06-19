@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const { Schema } = mongoose
 
-const jobListingSchema = new Schema({
+const addUserSchema = new Schema({
   title: String,
   body: String,
   subject: String,
@@ -13,4 +13,4 @@ const jobListingSchema = new Schema({
   lastResponded: Date
 })
 
-mongoose.model('jobListings', jobListingSchema)
+mongoose.model('addUsers', addUserSchema)
