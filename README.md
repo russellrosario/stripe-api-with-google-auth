@@ -15,6 +15,7 @@
 * Sign up page uses redux-form for validation
 * Adding/deleting a task goes through authentication middleware
 * Navbar contains login or sign out based on auth reducer
+* Add basic server and client test (it renders without crashing and posts a task)
 * Prettify with materialize
 * Update readme with video guide and instructions: install, heroku deploy, mlab addon, and config.example.js
 * Merge with other project and share with others using scraper
