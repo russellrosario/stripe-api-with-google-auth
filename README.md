@@ -16,6 +16,6 @@
   * Links use react router
 * Redux for tasks
   * CRUD functionality that goes through authentication middleware
-* Prettify with materialize
+* Prettify with react bootstrap
 * Update readme with video guide and instructions
   * install, heroku deploy, mlab addon, and config.example.js
